@@ -1,0 +1,58 @@
+# 服务端口
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /
+# spring 配置
+spring:
+  application:
+    name: templates
+    description: 日常代码
+  ## 数据库连接配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&autoReconnect=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&failOverReadOnly=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    #使用druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    #数据库连接池配置
+    druid:
+      #初始化大小
+      initial-size: 5
+      #最小连接数
+      min-idle: 5
+      #最大连接数
+      max-active: 20
+      #获取连接最大等待时间
+      max-wait: 60000
+      #间隔多久检测一次需要关闭的空闲连接 毫秒
+      time-between-eviction-runs-millis: 60000
+      #连接在连接池中最小生存的时间，毫秒
+      min-evictable-idle-time-millis: 300000
+      pool-prepared-statements: true
+      stat-view-servlet:
+        login-username: root
+        login-password: root
+        allow: 127.0.0.1
+  #JPA设置
+  jpa:
+    show-sql: false
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQLDialect
+    gen-ddl: false
+    properties:
+      hibernate:
+        # hbm2ddl.auto: update
+        # dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        #enable_lazy_load_no_trans: false
+        jdbc:
+          #为spring data jpa saveAll方法提供批量插入操作 此处可以随时更改大小 建议500哦
+          batch_size: 500
+          batch_versioned_data: true
+          order_inserts: true
+
