@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
 
         basicTransactionManager.executeSql ( "INSERT INTO user (id, name) VALUES ('" + UUID.randomUUID () + "' ," +
                 " '"+ userInsertDTO.getName () +"')" );
-        int i = 1/0; // 模拟异常，事务回滚
+//        int i = 1/0; // 模拟异常，事务回滚
 
     }
 }

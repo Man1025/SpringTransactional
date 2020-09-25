@@ -7,13 +7,12 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.UUID;
 
 
 /**
  * ClassName：com.code.springtransaction.config.BasicTransactionManager <br>
  * Description： 自定义封装ORM 框架
- * 作用：绑定参数/生产sql,执行sql， pojo对象/结果映射
+ * 作用：绑定参数/生成sql,执行sql， pojo对象/结果映射
  * 功能：此类 模拟ORM层框架 -- 执行sql的功能 <br>
  *
  * @author wangxiong <br>
